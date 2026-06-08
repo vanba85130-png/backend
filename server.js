@@ -23,7 +23,7 @@ app.use(cors({
 // 🚨 CHÚ Ý QUAN TRỌNG: Bạn hãy thay "MAT_KHAU_SUPABASE_CUA_BAN" thành mật khẩu tài khoản Supabase thật của bạn.
 // ĐƯỜNG DẪN KẾT NỐI DATABASE SUPABASE
 const pool = new Pool({
-    connectionString: "postgres://postgres:%258dx%2B_rd%255yBLNr@db.eljqkpequnsrvterpyyu.supabase.co:5432/postgres",
+   connectionString: "postgres://postgres:%258dx%2B_rd%255yBLNr@db.eljqkpequnsrvterpyyu.supabase.co:5432/postgres?sslmode=require",
     ssl: { rejectUnauthorized: false } // Bắt buộc phải có để kết nối database online ổn định
 });
 
