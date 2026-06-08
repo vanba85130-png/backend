@@ -6,7 +6,7 @@ const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
 const axios = require('axios');
-const { GoogleGenAI } = require("@google/genai");
+const { GoogleGenAI } = require("@google/generative-ai");
 const { OAuth2Client } = require('google-auth-library');
 
 const app = express();
