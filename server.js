@@ -23,9 +23,12 @@ app.use(cors({
 // 🚨 CHÚ Ý QUAN TRỌNG: Bạn hãy thay "MAT_KHAU_SUPABASE_CUA_BAN" thành mật khẩu tài khoản Supabase thật của bạn.
 // ĐƯỜNG DẪN KẾT NỐI DATABASE SUPABASE
 // CẤU HÌNH DATABASE CHUẨN SUPABASE - Đã xử lý mã hóa ký tự mật khẩu đặc biệt và định tuyến SNI Hostname để sửa lỗi ENOIDENTIFIER
+// CẤU HÌNH DATABASE CHUẨN SUPABASE - Sửa lỗi self-signed certificate bằng cách cấu hình thuộc tính SSL chuẩn
 const pool = new Pool({
-    connectionString: "postgres://postgres:%258dx%2B_rd%255yBLNr@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require",
-    ssl: { rejectUnauthorized: false }
+    connectionString: "postgres://postgres:%258dx%2B_rd%255yBLNr@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres",
+    ssl: { 
+        rejectUnauthorized: false // 👈 Bắt buộc phải giữ thuộc tính này để bỏ qua kiểm tra chứng chỉ tự ký của Supabase
+    }
 });
 // Kiểm tra xem kết nối database ổn định chưa khi bật server
 pool.connect((err, client, release) => {
