@@ -23,7 +23,11 @@ app.use(cors({
 // 🚨 CHÚ Ý QUAN TRỌNG: Bạn hãy thay "MAT_KHAU_SUPABASE_CUA_BAN" thành mật khẩu tài khoản Supabase thật của bạn.
 // ĐƯỜNG DẪN KẾT NỐI DATABASE SUPABASE
 const pool = new Pool({
-    connectionString: "postgres://postgres:%258dx%2B_rd%255yBLNr@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require",
+    user: "postgres",
+    password: "%8dx+_rd%5yBLNr", // 👈 Truyền trực tiếp mật khẩu thô của bạn vào đây, không bị lỗi mã hóa URL
+    host: "aws-0-ap-southeast-1.pooler.supabase.com", // 👈 Ép chạy qua dải IPv4 của đường truyền Connection Pooler
+    database: "postgres",
+    port: 6543, // 👈 Cổng Pooler chính thức hỗ trợ IPv4 của Supabase
     ssl: { rejectUnauthorized: false }
 });
 
